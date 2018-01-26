@@ -101,6 +101,38 @@
                             <md-ripple>
                                 <md-card-header>
                                     <md-card-header-text>
+                                        <div class="md-title">Discord Status</div>
+                                        <div class="md-subhead">Discord</div>
+                                    </md-card-header-text>
+
+                                    <md-card-media md-medium>
+                                        <img :src="bot.discord_status.icon" alt="icon">
+                                    </md-card-media>
+                                </md-card-header>
+
+                                <md-card-content>
+                                    <span class="md-body-2">Server ID</span>: {{bot.discord_status.id}}
+                                    <br> <span class="md-body-2">Server name</span>: {{bot.discord_status.name}}
+                                    <br> <span class="md-body-2">Created</span>: {{bot.discord_status.created_at}}
+                                    <br> <span class="md-body-2">Members</span>: {{bot.discord_status.members}}
+                                    <div class="md-layout md-gutter md-alignment-center-center">
+                                        <a href="https://discord.gg/BNvmaRY" target="_blank">
+                                            <md-button class="md-raised md-primary">Join us</md-button>
+                                        </a>
+                                    </div>
+                                </md-card-content>
+
+                                <!-- <md-card-actions>
+                                      <md-button>Action</md-button>
+                                      <md-button>Action</md-button>
+                                    </md-card-actions> -->
+                            </md-ripple>
+                        </md-card>
+
+                        <md-card md-with-hover>
+                            <md-ripple>
+                                <md-card-header>
+                                    <md-card-header-text>
                                         <div class="md-title">Git Status</div>
                                         <div class="md-subhead">Git</div>
                                     </md-card-header-text>
