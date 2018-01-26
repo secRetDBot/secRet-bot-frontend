@@ -85,8 +85,8 @@
                                 </md-card-header>
 
                                 <md-card-content>
-                                    Now: {{bot.bot_status.now}}
-                                    <br> Uptime: {{bot.bot_status.uptime}}
+                                    <span class="md-body-2">Server time</span>: {{bot.bot_status.now}}
+                                    <br> <span class="md-body-2">Uptime</span>: {{bot.bot_status.uptime}}
 
                                 </md-card-content>
 
@@ -111,8 +111,8 @@
                                 </md-card-header>
 
                                 <md-card-content>
-                                    Updated: {{bot.git_status.updated}}
-                                    <br> Status: {{bot.git_status.status}}
+                                    <span class="md-body-2">Last update</span>: {{bot.git_status.updated}}
+                                    <br> <span class="md-body-2">Status</span>: {{bot.git_status.status}}
 
                                 </md-card-content>
 
@@ -137,16 +137,16 @@
                                 </md-card-header>
 
                                 <md-card-content>
-                                    Host: {{bot.mongo_status.host}}
-                                    <br> Version: {{bot.mongo_status.version}}
-                                    <br> Process: {{bot.mongo_status.process}}
-                                    <br> Pid: {{bot.mongo_status.pid}}
-                                    <br> Db: {{bot.mongo_status.db}}
-                                    <br> Collections: {{bot.mongo_status.collections}}
-                                    <br> Objects: {{bot.mongo_status.objects}}
-                                    <br> Indexes: {{bot.mongo_status.indexes}}
-                                    <br> Storage Size: {{bot.mongo_status.storage_size}}
-                                    <br> Index Size: {{bot.mongo_status.index_size}}
+                                    <span class="md-body-2">Host</span>: {{bot.mongo_status.host}}
+                                    <br> <span class="md-body-2">Version</span>: {{bot.mongo_status.version}}
+                                    <br> <span class="md-body-2">Process</span>: {{bot.mongo_status.process}}
+                                    <br> <span class="md-body-2">Pid</span>: {{bot.mongo_status.pid}}
+                                    <br> <span class="md-body-2">DB</span>: {{bot.mongo_status.db}}
+                                    <br> <span class="md-body-2">Collections</span>: {{bot.mongo_status.collections}}
+                                    <br> <span class="md-body-2">Objects</span>: {{bot.mongo_status.objects}}
+                                    <br> <span class="md-body-2">Indexes</span>: {{bot.mongo_status.indexes}}
+                                    <br> <span class="md-body-2">Storage size</span>: {{bot.mongo_status.storage_size}}
+                                    <br> <span class="md-body-2">Index size</span>: {{bot.mongo_status.index_size}}
                                 </md-card-content>
 
                                 <!-- <md-card-actions>
