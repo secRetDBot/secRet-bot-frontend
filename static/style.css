@@ -1,0 +1,13 @@
+.md-card {
+    width: 320px;
+    margin: 4px;
+    display: inline-block;
+    vertical-align: top;
+}
+body,
+#app,
+.page-container,
+.page-container>.md-app,
+.page-container>.md-app>main {
+    height: 100%;
+}
