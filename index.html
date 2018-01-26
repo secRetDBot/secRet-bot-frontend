@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1,minimal-ui" name="viewport">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons">
+  <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/vue-material.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/theme/default.css">
+
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/vue-material@beta"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+  <style>
+    .md-card {
+      width: 320px;
+      margin: 4px;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    body,
+    #app,
+    .page-container,
+    .page-container>.md-app,
+    .page-container>.md-app>main {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<!-- Nn so xk ti ho scritto di li
+Eravamo già li
+Cmq bigggg
+Nn impazzire
+Io la home la pensavo come
+3 blocchi material
+In orizzontale
+3 cards
+In lo !status
+-->
+
+
+
+<body>
+  <div id="app">
+    <div class="page-container">
+      <md-app md-mode="reveal">
+        <md-app-toolbar class="md-accent">
+          <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
+            <md-icon>menu</md-icon>
+          </md-button>
+          <span class="md-title">SecRet Bot</span>
+        </md-app-toolbar>
+
+        <md-app-drawer :md-active.sync="menuVisible">
+          <md-toolbar class="md-transparent" md-elevation="0">Navigation</md-toolbar>
+
+          <md-list>
+            <md-list-item>
+              <md-icon>thumb_up</md-icon>
+              <span class="md-list-item-text">Menu item</span>
+            </md-list-item>
+            <!-- 
+            <md-list-item>
+              <md-icon>send</md-icon>
+              <span class="md-list-item-text">Sent Mail</span>
+            </md-list-item>
+
+            <md-list-item>
+              <md-icon>delete</md-icon>
+              <span class="md-list-item-text">Trash</span>
+            </md-list-item>
+
+            <md-list-item>
+              <md-icon>error</md-icon>
+              <span class="md-list-item-text">Spam</span>
+            </md-list-item> -->
+          </md-list>
+        </md-app-drawer>
+
+        <md-app-content>
+          <!-- <md-card md-with-hover v-for="card in cards">
+            <md-ripple>
+              <md-card-header>
+                <div class="md-title">{{ card.test }}</div>
+                <div class="md-subhead">{{ card.blah }}</div>
+              </md-card-header>
+
+              <md-card-content>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio itaque ea, nostrum odio. Dolores, sed accusantium quasi non.
+              </md-card-content>
+
+              <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions>
+            </md-ripple>
+          </md-card> -->
+
+          <md-card md-with-hover>
+            <md-ripple>
+              <md-card-header>
+                <md-card-header-text>
+                  <div class="md-title">Bot Status</div>
+                  <div class="md-subhead">Bot </div>
+                </md-card-header-text>
+
+                <md-card-media md-medium>
+                  <img :src="bot.bot_status.icon" alt="icon">
+                </md-card-media>
+              </md-card-header>
+
+              <md-card-content>
+                Now: {{bot.bot_status.now}}
+                <br> Uptime: {{bot.bot_status.uptime}}
+
+              </md-card-content>
+
+              <!-- <md-card-actions>
+                <md-button>Action</md-button>
+                <md-button>Action</md-button>
+              </md-card-actions> -->
+            </md-ripple>
+          </md-card>
+
+          <md-card md-with-hover>
+            <md-ripple>
+              <md-card-header>
+                <md-card-header-text>
+                  <div class="md-title">Git Status</div>
+                  <div class="md-subhead">Git</div>
+                </md-card-header-text>
+
+                <md-card-media md-medium>
+                  <img :src="bot.git_status.icon" alt="icon">
+                </md-card-media>
+              </md-card-header>
+
+              <md-card-content>
+                Updated: {{bot.git_status.updated}}
+                <br> Status: {{bot.git_status.status}}
+
+              </md-card-content>
+
+              <!-- <md-card-actions>
+                  <md-button>Action</md-button>
+                  <md-button>Action</md-button>
+                </md-card-actions> -->
+            </md-ripple>
+          </md-card>
+
+
+
+          <!--"mongo_status": {
+            "host": "igio90-desktop",
+            "version": "3.4.7",
+            "process": "mongod",
+            "pid": 921,
+            "db": "secret",
+            "collections": 3,
+            "objects": 340,
+            "indexes": 7,
+            "storage_size": 118784,
+            "index_size": 204800,
+            "icon": "https://www.todobackend.com/images/logos/mongodb.png"
+          } -->
+          <md-card md-with-hover>
+            <md-ripple>
+              <md-card-header>
+                <md-card-header-text>
+                  <div class="md-title">Mongo Status</div>
+                  <div class="md-subhead">Mongo</div>
+                </md-card-header-text>
+
+                <md-card-media md-medium>
+                  <img :src="bot.mongo_status.icon" alt="icon">
+                </md-card-media>
+              </md-card-header>
+
+              <md-card-content>
+                Host: {{bot.mongo_status.host}}
+                <br> Version: {{bot.mongo_status.version}}
+                <br> Process: {{bot.mongo_status.process}}
+                <br> Pid: {{bot.mongo_status.pid}}
+                <br> Db: {{bot.mongo_status.db}}
+                <br> Collections: {{bot.mongo_status.collections}}
+                <br> Objects: {{bot.mongo_status.objects}}
+                <br> Indexes: {{bot.mongo_status.indexes}}
+                <br> Storage Size: {{bot.mongo_status.storage_size}}
+                <br> Index Size: {{bot.mongo_status.index_size}}
+              </md-card-content>
+
+              <!-- <md-card-actions>
+                    <md-button>Action</md-button>
+                    <md-button>Action</md-button>
+                  </md-card-actions> -->
+            </md-ripple>
+          </md-card>
+        </md-app-content>
+      </md-app>
+    </div>
+  </div>
+
+  <script>
+
+
+    Vue.use(VueMaterial.default)
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        menuVisible: false,
+        cards: [{ test: "omg", blah: "aaa" }, { test: "lol", blah: "bbb" }],
+
+        bot: {
+          "bot_status": {
+            "now": "23:30:19",
+            "uptime": "0:00:05",
+            "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Icons8_flat_clock.svg/2000px-Icons8_flat_clock.svg.png"
+          },
+          "git_status": {
+            "updated": "2018-01-22 18:36:22",
+            "status": "good",
+            "icon": "https://avatars3.githubusercontent.com/u/1153419?s=400&v=4"
+          },
+          "mongo_status": {
+            "host": "igio90-desktop",
+            "version": "3.4.7",
+            "process": "mongod",
+            "pid": 921,
+            "db": "secret",
+            "collections": 3,
+            "objects": 340,
+            "indexes": 7,
+            "storage_size": 118784,
+            "index_size": 204800,
+            "icon": "https://www.todobackend.com/images/logos/mongodb.png"
+          }
+        }
+      },
+
+      created: function () {
+        $.getJSON("http://secret.re:8080").done(function(data) {
+            app.data.bot = data;
+        }).fail(function() {
+            alert("Failed to get server status JSON");
+        });
+      }
+    })
+
+
+
+
+  </script>
+  </script>
+</body>
+
+</html>
