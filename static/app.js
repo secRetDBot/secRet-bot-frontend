@@ -1,10 +1,10 @@
 Vue.use(VueMaterial.default);
 
-var app = new Vue({
+let app = new Vue({
     el: '#app',
     data: {
         menuVisible: false,
-        cards: [{ test: "omg", blah: "aaa" }, { test: "lol", blah: "bbb" }],
+        cards: [{test: "omg", blah: "aaa"}, {test: "lol", blah: "bbb"}],
 
         bot: {
             "bot_status": {
@@ -34,9 +34,9 @@ var app = new Vue({
     },
 
     created: function () {
-        $.getJSON("http://secret.re:8080").done(function(data) {
+        $.getJSON("http://secret.re:8080").done(function (data) {
             app.$data.bot = data;
-        }).fail(function() {
+        }).fail(function () {
             alert("Failed to get server status JSON");
         });
     }
